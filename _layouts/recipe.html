@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="recipe">
+  <div class="recipe-header">
+    <p class="recipe-category-badge">
+      <a href="{{ site.baseurl }}/{{ page.category }}/">{{ page.category_label }}</a>
+    </p>
+    <h1 class="recipe-title">{{ page.title }}</h1>
+  </div>
+
+  <div class="recipe-content">
+    {{ content }}
+  </div>
+
+  <div class="recipe-back-link">
+    <a href="{{ site.baseurl }}/{{ page.category }}/">&larr; Back to {{ page.category_label }}</a>
+  </div>
+</div>
