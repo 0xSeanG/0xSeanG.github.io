@@ -1155,6 +1155,16 @@ Modules - reusable parts of our design
   text-align: center;
 }
 
+.cookbook-cover {
+  margin: 0 auto 10px;
+  max-width: 480px;
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
 .cookbook-intro {
   margin: 20px 0 30px;
   color: $gray;
