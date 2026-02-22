@@ -2,48 +2,52 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-    <article class="post">
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        <h1>{{ post.title }}</h1>
-
-        <div>
-          <p class="post_date">{{ post.date | date: "%B %e, %Y" }}</p>
-        </div>
-      </a>
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-
-  <!-- pagination -->
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-    {% else %}
-      <span>&laquo; Prev</span>
-    {% endif %}
-
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <span class="webjeda">{{ page }}</span>
-      {% elsif page == 1 %}
-        <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-      {% else %}
-        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-    {% else %}
-      <span>Next &raquo;</span>
-    {% endif %}
+<div class="cookbook-home">
+  <div class="cookbook-intro">
+    <p>Browse our collection of family recipes, gathered and perfected over the years.</p>
   </div>
-  {% endif %}
+
+  <div class="category-grid">
+    <a href="{{ site.baseurl }}/appetizers/" class="category-card">
+      <div class="category-name">Appetizers</div>
+      <div class="category-count">
+        {% assign c = site.recipes | where: "category", "appetizers" %}{{ c.size }} recipes
+      </div>
+    </a>
+
+    <a href="{{ site.baseurl }}/bread/" class="category-card">
+      <div class="category-name">Bread</div>
+      <div class="category-count">
+        {% assign c = site.recipes | where: "category", "bread" %}{{ c.size }} recipes
+      </div>
+    </a>
+
+    <a href="{{ site.baseurl }}/breakfast/" class="category-card">
+      <div class="category-name">Breakfast</div>
+      <div class="category-count">
+        {% assign c = site.recipes | where: "category", "breakfast" %}{{ c.size }} recipes
+      </div>
+    </a>
+
+    <a href="{{ site.baseurl }}/dessert/" class="category-card">
+      <div class="category-name">Dessert</div>
+      <div class="category-count">
+        {% assign c = site.recipes | where: "category", "dessert" %}{{ c.size }} recipes
+      </div>
+    </a>
+
+    <a href="{{ site.baseurl }}/main/" class="category-card">
+      <div class="category-name">Main Dishes</div>
+      <div class="category-count">
+        {% assign c = site.recipes | where: "category", "main" %}{{ c.size }} recipes
+      </div>
+    </a>
+
+    <a href="{{ site.baseurl }}/sides/" class="category-card">
+      <div class="category-name">Sides</div>
+      <div class="category-count">
+        {% assign c = site.recipes | where: "category", "sides" %}{{ c.size }} recipes
+      </div>
+    </a>
+  </div>
 </div>

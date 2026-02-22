@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="category-page">
+  <h1>{{ page.title }}</h1>
+
+  <ul class="recipe-list">
+    {% assign cat_recipes = site.recipes | where: "category", page.category | sort: "title" %}
+    {% for recipe in cat_recipes %}
+      <li>
+        <a href="{{ site.baseurl }}{{ recipe.url }}">{{ recipe.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="category-back-link"><a href="{{ site.baseurl }}/">&larr; Back to all categories</a></p>
+</div>
